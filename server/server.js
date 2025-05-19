@@ -15,6 +15,10 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
+// Define Routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/workouts', require('./routes/workouts'));
+
 // Basic route
 app.get('/', (req, res) => {
   res.send('Fitness Trainer API is running');
